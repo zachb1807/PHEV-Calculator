@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="has-background-white-ter">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plug-In Hybrid Fuel Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "a4164301-1f51-4892-b7e9-c2b71285b475",
+            });
+        });
+    </script>
+    <link rel="manifest" href="/manifest.json">
+</head>
+
+<body class="hidden" id="body">
+    <div class="flex justify-center">
+        <div class="max-w-xl bg-white rounded-xl shadow-md px-5 my-5 mx-3">
+            <div class="flex flex-col items-center">
+                <p class="page-title title my-9">Plug-In Hybrid Fuel Calculator</p>
+                <p class="mb-5">No recent results found</p>
+                <a href="/index.html"><button id="button-group"
+                        class="button is-link is-light w-30 self-center font-semibold mx-2" type="submit"
+                        style="margin-bottom: 20px;">Use Calculator</button></a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;" class="flex justify-center content-center mb-3">
+        <img src="/img/icon/transparenticon.webp" class=" h-12" style="text-align: center;">
+        <p class="align-middle content-center self-center title" style="font-size: 17px;">PHEV CALCULATOR</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
+        // Import the functions you need from the SDKs you need
+
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-librarie
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_2bUsGSPh-WbbggWCnRrx9y2aPg3pDsg",
+            authDomain: "phev-calculator.firebaseapp.com",
+            projectId: "phev-calculator",
+            storageBucket: "phev-calculator.appspot.com",
+            messagingSenderId: "52348881251",
+            appId: "1:52348881251:web:6ef52652a1def40a396b56",
+            measurementId: "G-FDFB90NJM8"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+
+
+    </script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
