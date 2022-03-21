@@ -37,7 +37,7 @@ function normalElectric() {
 }
 
 
-function decimal() {
+function decimalGas() {
     if (gasPrice.value == "") {
         gasPrice.value = null
     }
@@ -62,5 +62,40 @@ function decimal() {
         if (gasPrice.value.length < 3) {
             gasPrice.value = gasPrice.value + `.00`;
         }
+    }
+    while (gasPrice.value.charAt(0) == "0" && gasPrice.value.charAt(1) != ".") {
+        gasPrice.value = gasPrice.value.substring(1, gasPrice.value.length);
+    }
+}
+
+function decimalElectric() {
+    if (electricPrice.value == "") {
+        electricPrice.value = null
+    }
+    else if (!electricPrice.value.includes(".")) {
+        electricPrice.value = electricPrice.value.substring(0, electricPrice.value.length - 2) + "." + electricPrice.value.substring(electricPrice.value.length - 2, electricPrice.value.length);
+        if(electricPrice.value.indexOf(".") == 0){
+            electricPrice.value = "0" + electricPrice.value;
+        }
+        if(electricPrice.value.indexOf(".") == electricPrice.value.length - 2){
+            electricPrice.value = electricPrice.value.substring(0, electricPrice.value.indexOf(".") + 1) + "0" + electricPrice.value.substring(electricPrice.value.indexOf(".") + 1, electricPrice.value.length);
+        }
+    }
+    else if (electricPrice.value.includes(".")) {
+        var decimalLocation = electricPrice.value.indexOf(".");
+        var decimalLength = electricPrice.value.length - decimalLocation;
+        if (decimalLocation == 0) {
+            electricPrice.value = "0" + electricPrice.value;
+        }
+        if (decimalLength > 3) {
+            electricPrice.value = electricPrice.value.substr(0, decimalLocation + 3);
+        }
+        if (decimalLength < 3) {
+            electricPrice.value = electricPrice.value + "0";
+        }
+    }
+
+    while (electricPrice.value.charAt(0) == "0" && electricPrice.value.charAt(1) != ".") {
+        electricPrice.value = electricPrice.value.substring(1, electricPrice.value.length);
     }
 }

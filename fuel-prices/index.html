@@ -34,7 +34,7 @@
                     <p class="my-4 mt-5">Vehicle: <b><span id="selected-vehicle"></span></b></p>
                     <div class="field self-center">
                         <p class="control has-icons-left has-icons-right">
-                            <input id="gas-price" onchange="decimal()" name="gas-price"
+                            <input id="gas-price" onchange="decimalGas()" name="gas-price"
                                 class="input is-link self-center my-4 max-w-prose" type="number" min="0.00" step="0.01"
                                 placeholder="Gas Price" oninput="normalGas()" required>
                             <span class="icon is-small is-left">
@@ -51,7 +51,7 @@
                         <p class="control has-icons-left has-icons-right">
                             <input id="electric-price" class="input is-link self-center my-2 max-w-prose" type="number"
                                 min="0.00" name="electricity-price" step=".01" placeholder="Electricity Price" required
-                                oninput="normalElectric()">
+                                oninput="normalElectric()" onchange="decimalElectric()">
                             <span class="icon is-small is-left">
                                 <span class="material-icons" style="position: relative; top: 8.5px;">
                                     attach_money
