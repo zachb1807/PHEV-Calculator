@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="has-background-white-ter" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plug-In Hybrid Fuel Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "a4164301-1f51-4892-b7e9-c2b71285b475",
+            });
+        });
+    </script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/img/icon/icon_x192.png">
+    <meta name="theme-color" content="#f5f5f5">
+</head>
+
+<body>
+    <form action="/summary/custom">
+        <input id="source" name="source" class="hidden" style="display:none;">
+        <input id="range-input" name="range" class="hidden" style="display:none;">
+        <input id="kwh-input" name="kwh" class="hidden" style="display:none;">
+        <input id="mpg-input" name="mpg" class="hidden" style="display:none;">
+        <div class="flex justify-center">
+            <div class="max-w-xl bg-white rounded-xl shadow-md px-5 my-5 mx-3">
+                <div class="flex flex-col items-center">
+                    <p class="page-title title my-9">Plug-In Hybrid Fuel Calculator</p>
+                    <img src="progress-2.svg" class="h-8" alt="Shows the progress of the user through the three app steps">
+                    <p class="mt-5">Electric Range: <b><span id="range-display"></span></b></p>
+                    <p>Battery Capacity: <b><span id="kwh-display"></span></b></p>
+                    <p class="mb-4">MPG: <b><span id="mpg-display"></span></b></p>
+                    <div class="field self-center">
+                        <p class="control has-icons-left has-icons-right">
+                            <input id="gas-price" onchange="decimalGas()" name="gas-price"
+                                class="input is-link self-center my-4 max-w-prose" type="number" min="0.00" step="0.01"
+                                placeholder="Gas Price" oninput="normalGas()" required>
+                            <span class="icon is-small is-left">
+                                <span class="material-icons" style="position: relative; top: 16.5px;">
+                                    attach_money
+                                </span>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <span style="position: relative; top: 16.5px; right: 20px;">/gallon</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field self-center">
+                        <p class="control has-icons-left has-icons-right">
+                            <input id="electric-price" class="input is-link self-center my-2 max-w-prose" type="number"
+                                min="0.00" name="electricity-price" step=".01" placeholder="Electricity Price" required
+                                oninput="normalElectric()" onchange="decimalElectric()">
+                            <span class="icon is-small is-left">
+                                <span class="material-icons" style="position: relative; top: 8.5px;">
+                                    attach_money
+                                </span>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <span style="position: relative; top: 8.5px; right: 20px;">/kWh</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="/"><button class="button is-link is-light w-30 self-center mx-2"
+                            style="margin-bottom: 15px;" type="button"><span class="material-icons">
+                                arrow_back
+                            </span></button></a>
+                        <button class="button is-link is-light w-30 self-center font-semibold mx-2" type="submit"
+                            style="margin-bottom: 20px;" onclick="validate()">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;" class="flex justify-center content-center mb-3">
+            <img src="/img/icon/transparenticon.webp" class=" h-12" style="text-align: center;" alt="PHEV Calculator logo">
+            <p class="align-middle content-center self-center title" style="font-size: 17px;">PHEV CALCULATOR</p>
+        </div>
+        <p class="text-center disclaimer mb-3" style="font-size: 13px;" onclick="showDisclaimer()">Disclaimer</p>
+    </form>
+
+    <script src="/commonScripts.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
+        // Import the functions you need from the SDKs you need
+
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-librarie
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_2bUsGSPh-WbbggWCnRrx9y2aPg3pDsg",
+            authDomain: "phev-calculator.firebaseapp.com",
+            projectId: "phev-calculator",
+            storageBucket: "phev-calculator.appspot.com",
+            messagingSenderId: "52348881251",
+            appId: "1:52348881251:web:6ef52652a1def40a396b56",
+            measurementId: "G-FDFB90NJM8"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+
+
+    </script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

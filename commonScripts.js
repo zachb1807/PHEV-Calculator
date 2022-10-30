@@ -1,0 +1,3 @@
+function showDisclaimer() {
+    alert("All calculations are based on user-inputted information and vehicle data provided by manufacturers including miles-per-gallon (MPG), single-charge battery range, and battery capacity. While the calculations from this tool are expected to be relatively accurate, they are limited to available data and real-world results may vary. This calculator should be used as a guide.");
+}

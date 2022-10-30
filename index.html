@@ -2,12 +2,13 @@
 <html class="has-background-white-ter" lang="en">
 
 <head>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#60c517">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="PHEV Calculator" />
-<meta property="og:type" content="video.movie" />
-<meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
-<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
   <title>Plug-In Hybrid Fuel Calculator</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -24,6 +25,8 @@
       });
     });
   </script>
+  <link rel="apple-touch-icon" href="/img/icon/icon_x192.png">
+  <meta name="theme-color" content="#f5f5f5">
 </head>
 
 <body>
@@ -33,27 +36,42 @@
         <div class="flex flex-col items-center">
           <p class="page-title title my-9">Plug-In Hybrid Fuel Calculator</p>
           <img src="progress-1.svg" class="h-8" alt="Shows the progress of the user through the three app steps">
-          <p class="my-4 mt-5 text-center mx-2">To begin, select your hybrid vehicle from the list below</p>
-          <p class="my-4 text-center mx-2">More vehicles will be added in the future</p>
-          <div class="select is-link self-center my-4">
-            <select name="vehicle">
-              <option>Hyundai IONIQ PHEV</option>
-              <option>Kia Niro PHEV</option>
-              <option>Toyota Prius Prime</option>
-              <option>Ford Escape PHEV</option>
-              <option>Toyota RAV4 Prime</option>
-              <option>Chrysler Pacifica Hybrid</option>
-              <option>Subaru Crosstrek PHEV</option>
-              <option>BMW 330e</option>
-              <option>Audi A7 TFSI e</option>
-              <option>Volvo S60 Recharge</option>
-              <option>Volvo S90 T8 PHEV</option>
-              <option>BMW X5 xDrive 40e</option>
-              <option>Volvo XC60 T8 PHEV</option>
-              <option>Mini Countryman SE PHEV</option>
-              <option>BMW 530e</option>
-              <option>Volvo V60 Recharge</option>
-            </select>
+          <p class="my-4 mt-5 text-center mx-2">To begin, select your hybrid vehicle from the<br> list below or enter
+            custom data</p>
+          <div class="tabs is-centered" id="switcher">
+            <ul>
+              <li class="is-active" id="selectButton"><a>Select Vehicle</a></li>
+              <li id="customButton"><a href="custom-data.html">Custom Data</a></li>
+            </ul>
+          </div>
+          <div id="select-div">
+            <p class="my-4 text-center mx-2">All vehicles listed are 2022 models<br> unless otherwise specified</p>
+            <div class="select is-link self-center my-4" id="vehicleSelector">
+              <select name="vehicle">
+                <option>Audi A7 TFSI e quattro</option>
+                <option>Audi Q5 TFSI e quattro</option>
+                <option>Bentley Flying Spur Hybrid</option>
+                <option>BMW 330e Sedan</option>
+                <option>BMW 330e xDrive</option>
+                <option>BMW 530e Sedan</option>
+                <option>BMW 530e xDrive</option>
+                <option>BMW 745e xDrive</option>
+                <option>BMW X5 xDrive45e</option>
+                <option>Chrysler Pacifica Hybrid</option>
+                <option>Ford Escape FWD PHEV</option>
+                <option>Hyundai Ioniq Plug-in Hybrid</option>
+                <option>Hyundai Santa Fe Plug-in Hybrid</option>
+                <option>Hyundai Tucson Plug-in Hybrid</option>
+                <option>Jeep Grand Cherokee 4xe</option>
+                <option>Jeep Wrangler 4dr 4xe</option>
+                <option>Kia Niro Plug-in Hybrid</option>
+                <option>Kia Sorento Plug-in Hybrid</option>
+                <option>Land Rover Range Rover Sport PHEV</option>
+                <option>Lexus NX 450h+ AWD</option>
+                <option>Lincoln Aviator AWD PHEV</option>
+                <option>Lincoln Corsair AWD PHEV</option>
+              </select>
+            </div>
           </div>
           <button type="submit" class="button is-link is-light w-30 self-center"
             style="margin-bottom: 20px;">Continue</button>
@@ -67,9 +85,11 @@
       <img src="/img/icon/transparenticon.webp" class=" h-12" style="text-align: center;" alt="PHEV Calculator logo">
       <p class="align-middle content-center self-center title" style="font-size: 17px;">PHEV CALCULATOR</p>
     </div>
+    <p class="text-center disclaimer mb-3" style="font-size: 13px;" onclick="showDisclaimer()">Disclaimer</p>
   </form>
 
   <script src="script.js"></script>
+  <script src="commonScripts.js"></script>
 
   <script type="module">
 

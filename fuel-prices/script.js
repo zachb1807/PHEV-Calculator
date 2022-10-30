@@ -1,3 +1,4 @@
+//Get the input data from previous page
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const vehicle = urlParams.get('vehicle')
@@ -7,10 +8,14 @@ console.log(vehicle);
 //     window.location.replace("/index.html");
 // }
 
-var selectedVehicleText = document.getElementById("selected-vehicle");
-var vehicleHiddenInput = document.getElementById("vehicle");
-vehicleHiddenInput.value = vehicle;
-selectedVehicleText.innerText = vehicle;
+//Display chosen vehicle and pass it to the next page
+document.getElementById("selected-vehicle").innerHTML = vehicle;
+document.getElementById("vehicle").value = vehicle;
+
+//Set source to preset
+document.getElementById("source").value = "preset";
+
+//Initialize the input fields
 var gasPrice = document.getElementById("gas-price");
 var electricPrice = document.getElementById("electric-price");
 
@@ -99,3 +104,13 @@ function decimalElectric() {
         electricPrice.value = electricPrice.value.substring(1, electricPrice.value.length);
     }
 }
+
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then(res => console.log("service worker registered"))
+        .catch(err => console.log("service worker not registered", err))
+    })
+  }

@@ -12,10 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script src="https://kit.fontawesome.com/95752edc0a.js" crossorigin="anonymous"></script>
-    <meta name="theme-color" content="#f5f5f5" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
     <style>
+        .disclaimer {
+            color: #8f8f8f;
+
+        }
+
+        .disclaimer:hover {
+            cursor:pointer;
+            color: #474747;
+        }
+
         table,
         th,
         td {}
@@ -32,6 +41,8 @@
             });
         });
     </script>
+      <link rel="apple-touch-icon" href="/img/icon/icon_x192.png">
+      <meta name="theme-color" content="#f5f5f5">
 </head>
 
 <body>
@@ -41,7 +52,7 @@
             <div class="flex flex-col items-center">
                 <p class="page-title title my-9">Plug-In Hybrid Fuel Calculator</p>
                 <img src="progress-3.svg" class="h-8 no-print" alt="Shows the progress of the user through the three app steps">
-                <img style="height: 100px; display: none;" id="vehicle-image" class="mt-3 no-print">
+                <img style="height: 100px; display: none;" id="vehicle-image" class="mt-3 no-print" alt="The image of the vehicle you selected">
                 <p class="subtitle is-4 mt-3 mb-5" id="vehicle-title" style="display:none;"></p>
                 <div class="lds-ripple my-2 mt-4" id="spinner">
                     <div></div>
@@ -103,6 +114,9 @@
         <img src="/img/icon/transparenticon.webp" class=" h-12" style="text-align: center;" alt="PHEV Calculator logo">
         <p class="align-middle content-center self-center title" style="font-size: 17px;">PHEV CALCULATOR</p>
     </div>
+    <p class="text-center disclaimer mb-3" style="font-size: 13px;" onclick="showDisclaimer()">Disclaimer</p>
+
+    <script src="/commonScripts.js"></script>
     <script src="script.js"></script>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
